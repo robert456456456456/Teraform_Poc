@@ -38,10 +38,8 @@ aws configure
 Default region name: eu-central-1
 Default output format: json
 ```
-
-# Terraform CLI 
-
 ```
+# Terraform CLI 
 # Get Terraform
 
 curl -o /tmp/terraform.zip -LO https://releases.hashicorp.com/terraform/0.13.1/terraform_0.13.1_linux_amd64.zip
@@ -63,10 +61,9 @@ terraform plan
 terraform apply
 
 ```
-
+```
 # Lets see what we deployed
 
-```
 # grab our EKS config
 aws eks update-kubeconfig --name getting-started-eks --region eu-central-1
 ```
