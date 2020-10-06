@@ -1,5 +1,3 @@
-# Teraform_Poc
-Create Terafoms simple templates  
 # Getting Started with Amazon EKS using Terraform
 
 More resources:
@@ -15,27 +13,20 @@ We'll need the Amazon CLI to gather information so we can build our Terraform fi
 # Run Amazon CLI
 docker run -it --rm -v ${PWD}:/work -w /work --entrypoint /bin/sh amazon/aws-cli:2.0.43
 
-```
-# Atomation Script
-```
-# You can run it and he do all Manul steps
-# For exmple
-./startapscript.sh  kubernetes/cloud/amazon/terraform
-
-```
-
-# Manual 
-```
 # some handy tools :)
 yum install -y jq gzip nano tar git unzip wget
 
 ```
-## Access your "My Security Credentials" section in your profile. 
-## Create an access key
+
+## Login to Amazon
+
+```
+# Access your "My Security Credentials" section in your profile. 
+# Create an access key
 
 aws configure
 
-Default region name: eu-central-1
+Default region name: ap-southeast-2
 Default output format: json
 ```
 
@@ -68,8 +59,8 @@ terraform apply
 
 ```
 # grab our EKS config
-aws eks update-kubeconfig --name getting-started-eks --region eu-central-1
-```
+aws eks update-kubeconfig --name getting-started-eks --region ap-southeast-2
+
 # Get kubectl
 
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
