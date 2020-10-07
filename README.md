@@ -16,7 +16,7 @@ We'll need the Amazon CLI to gather information so we can build our Terraform fi
 docker run -it --rm -v ${PWD}:/work -w /work --entrypoint /bin/sh amazon/aws-cli:2.0.43
 
 ```
-# Atomation Script
+# Automation Scripts
 ```
 # You can run it and he do all Manul steps
 # For exmple
@@ -41,10 +41,8 @@ aws configure
 Default region name: eu-central-1
 Default output format: json
 ```
-
-# Terraform CLI 
-
 ```
+# Terraform CLI 
 # Get Terraform
 
 curl -o /tmp/terraform.zip -LO https://releases.hashicorp.com/terraform/0.13.1/terraform_0.13.1_linux_amd64.zip
@@ -63,10 +61,9 @@ cd kubernetes/cloud/amazon/terraform
 terraform init;terraform plan;terraform apply -auto-approve
 
 ```
-
+```
 # Lets see what we deployed
 
-```
 # grab our EKS config
 aws eks update-kubeconfig --name getting-started-eks --region eu-central-1
 ```
