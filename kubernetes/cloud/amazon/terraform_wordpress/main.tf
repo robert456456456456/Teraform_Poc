@@ -137,7 +137,7 @@ resource "kubernetes_deployment" "example" {
 
       spec {
         container {
-          image = "nginx:1.7.8"
+          image = "wordpress"
           name  = "example"
 
           resources {

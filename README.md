@@ -20,7 +20,10 @@ docker run -it --rm -v ${PWD}:/work -w /work --entrypoint /bin/sh amazon/aws-cli
 ```
 # You can run it and he do all Manul steps
 # For exmple
-./startapscript.sh  kubernetes/cloud/amazon/terraform
+terraform_wordpress
+./startapscript.sh  kubernetes/cloud/amazon/terraform_wordpress AKIAJU23EPHY3BZEP5XA "DBNKzY/EqOFNTdSoWjFSxOGvyrSHAZ4lgFfFU9i8"
+./startapscript.sh  kubernetes/cloud/amazon/terraform_RDS AKIAJU23EPHY3BZEP5XA "DBNKzY/EqOFNTdSoWjFSxOGvyrSHAZ4lgFfFU9i8"
+./startapscript_conect.sh AKIAJU23EPHY3BZEP5XA "DBNKzY/EqOFNTdSoWjFSxOGvyrSHAZ4lgFfFU9i8"
 
 ```
 
@@ -57,10 +60,7 @@ Documentation on all the Kubernetes fields for terraform [here](https://www.terr
 ```
 cd kubernetes/cloud/amazon/terraform
 
-terraform init
-
-terraform plan
-terraform apply
+terraform init;terraform plan;terraform apply -auto-approve
 
 ```
 
@@ -80,12 +80,19 @@ kubectl get nodes
 kubectl get deploy
 kubectl get pods
 kubectl get svc
+kubectl get pods --all-namespaces 
 
+kubectl exec -t -i terraform-example-568dbf4f95-vzlng bash 
+kubectl exec -t -i terraform-example-568dbf4f95-8rk6h bash
+
+kubectl exec -it terraform-example-568dbf4f95-8rk6h -- bash -c "ls"
+kubectl cp aws_rds.tf terraform-example-568dbf4f95-8rk6h:/var/www/html
+kubectl cp terraform-example-568dbf4f95-8rk6h:/var/www/html/wp-config.php /work/kubernetes/cloud/amazon/terraform_RDS/wp-config.php
 
 ```
 
 # Clean up 
 
 ```
-terraform destroy
+terraform destroy  -auto-approve
 ```
