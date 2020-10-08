@@ -21,9 +21,9 @@ docker run -it --rm -v ${PWD}:/work -w /work --entrypoint /bin/sh amazon/aws-cli
 # You can run it and he do all Manul steps
 # For exmple
 terraform_wordpress
-./startapscript.sh  kubernetes/cloud/amazon/terraform_wordpress AKIAJU23EPHY3BZEP5XA "DBNKzY/EqOFNTdSoWjFSxOGvyrSHAZ4lgFfFU9i8"
-./startapscript.sh  kubernetes/cloud/amazon/terraform_RDS AKIAJU23EPHY3BZEP5XA "DBNKzY/EqOFNTdSoWjFSxOGvyrSHAZ4lgFfFU9i8"
-./startapscript_conect.sh AKIAJU23EPHY3BZEP5XA "DBNKzY/EqOFNTdSoWjFSxOGvyrSHAZ4lgFfFU9i8"
+./startapscript.sh  kubernetes/cloud/amazon/terraform_wordpress 
+./startapscript.sh  kubernetes/cloud/amazon/terraform_RDS
+./startapscript_conect.sh
 
 ```
 
