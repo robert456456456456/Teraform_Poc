@@ -21,9 +21,35 @@ docker run -it --rm -v ${PWD}:/work -w /work --entrypoint /bin/sh amazon/aws-cli
 # You can run it and he do all Manul steps
 # For exmple
 terraform_wordpress
+# Step 1: After you inside AWS CLI Run this with your key.
+
+./startapscript_conect.sh "Access Key"   "Secret Access Key"
+# Step 2: Run you Teraform Scripts.
+
 ./startapscript.sh  kubernetes/cloud/amazon/terraform_wordpress 
 ./startapscript.sh  kubernetes/cloud/amazon/terraform_RDS
-./startapscript_conect.sh
+ 
+# step 3: After Sripts end we need config Wordpress
+   Get url for Wordpre publesh And name of pods he run on them
+   kubectl get svc; kubectl get pods --all-namespaces
+# step 4: We need Coonect RDS DB to our wordpress Site
+  DBname:"wpdbtest"
+  username:"task6db"
+  password:"mydbpass"
+  Host:we get Rds publesh
+# step 5: we need check our pods get config .
+  Run this we can see inside pod files 
+  Exmple:
+  kubectl exec -it terraform-example-568dbf4f95-8rk6h -- bash -c "ls"
+   After we check two ours pods we will find in on of them doesn't exsit "wp-config.php".
+# step 6: Copy file beetwen two pods 
+  Becouse of it  we need copy "wp-config.php" to second pod
+  ./copy_nod.sh from_pod  to_pod
+  After this your wordpress site will up .    
+# Step 7: If this POC Destory All you creat.
+
+./desrtroy.sh  kubernetes/cloud/amazon/terraform_RDS
+./desrtroy.sh  kubernetes/cloud/amazon/terraform_wordpress
 
 ```
 
@@ -79,12 +105,12 @@ kubectl get pods
 kubectl get svc
 kubectl get pods --all-namespaces 
 
-kubectl exec -t -i terraform-example-568dbf4f95-vzlng bash 
-kubectl exec -t -i terraform-example-568dbf4f95-8rk6h bash
+
 
 kubectl exec -it terraform-example-568dbf4f95-8rk6h -- bash -c "ls"
-kubectl cp aws_rds.tf terraform-example-568dbf4f95-8rk6h:/var/www/html
 kubectl cp terraform-example-568dbf4f95-8rk6h:/var/www/html/wp-config.php /work/kubernetes/cloud/amazon/terraform_RDS/wp-config.php
+kubectl cp wp-config.php terraform-example-568dbf4f95-8rk6h:/var/www/html
+
 
 ```
 
