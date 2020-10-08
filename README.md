@@ -21,10 +21,11 @@ docker run -it --rm -v ${PWD}:/work -w /work --entrypoint /bin/sh amazon/aws-cli
 ```
 ## You can run it or do all Manual steps
 ## For exmple
+```
 # Deploy Wordpress with RDS db to EKS Cluste.
 # And Create all Infra from Scratch like(VPC,Security,Etc..).
 # Lets see. Six steps and you have it All up and Running.
-
+```
 ## Step 1: After you inside AWS CLI Run this with your key.
 
 ./startapscript_conect.sh "Access Key"   "Secret Access Key"
