@@ -35,7 +35,7 @@ docker run -it --rm -v ${PWD}:/work -w /work --entrypoint /bin/sh amazon/aws-cli
 ./startapscript.sh  kubernetes/cloud/amazon/terraform_wordpress 
 ./startapscript.sh  kubernetes/cloud/amazon/terraform_RDS
 ```
-## step 3: After Sripts end we need config Wordpress
+## step 3: After Scripts end we need config Wordpress
 ```
    Get url for Wordpre publesh And name of pods he run on them
    kubectl get svc; kubectl get pods --all-namespaces

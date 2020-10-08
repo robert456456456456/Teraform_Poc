@@ -75,7 +75,7 @@ aws eks describe-cluster --name getting-started-eks
 
 ```
 
-aws eks update-kubeconfig --name getting-started-eks --region ap-southeast-2
+aws eks update-kubeconfig --name getting-started-eks --region eu-central-1
 
 #grab the config if you want it
 cp ~/.kube/config .
@@ -129,7 +129,7 @@ chmod 400 ~/.ssh/id_rsa*
 
 
 eksctl create cluster --name getting-started-eks \
---region ap-southeast-2 \
+--region eu-central-1 \
 --version 1.16 \
 --managed \
 --node-type t2.small \
