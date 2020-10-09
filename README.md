@@ -45,19 +45,22 @@ docker run -it --rm -v ${PWD}:/work -w /work --entrypoint /bin/sh amazon/aws-cli
   DBname:"wpdbtest"
   username:"task6db"
   password:"mydbpass"
-  Host:we get Rds publesh
+  Host:we get Rds publesh wordpressdb.c8rcekxi7knv.eu-central-1.rds.amazonaws.com
 ```  
 ## step 5: we need check our pods get config .
 ```
   Run this we can see inside pod files 
   Exmple:
-  kubectl exec -it terraform-example-568dbf4f95-8rk6h -- bash -c "ls"
+        terraform-example-568dbf4f95-mjvpg   
+      terraform-example-568dbf4f95-sttx7
+  kubectl exec -it terraform-example-568dbf4f95-mjvpg -- bash -c "ls"
    After we check two ours pods we will find in on of them doesn't exsit "wp-config.php".
 ```   
 ## step 6: Copy file beetwen two pods 
 ```
   Becouse of it  we need copy "wp-config.php" to second pod
   ./copy_nod.sh from_pod  to_pod
+  ./copy_nod.sh terraform-example-568dbf4f95-mjvpg  terraform-example-568dbf4f95-sttx7
   After this your wordpress site will up .   
 ```  
 ## Step 7: If this POC Destory All you creat.
